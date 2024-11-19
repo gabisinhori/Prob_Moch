@@ -74,6 +74,6 @@ public class Produto{
         return "Nome: "+ getNome() + "\n"+
                 "R$: "+ getValor() + "\n"+
                 "Peso: "+ getPeso() + "\n"+
-                "Nome: "+ getQnt() + "\n";
+                "Quantidade: "+ getQnt() + "\n";
     }
 }

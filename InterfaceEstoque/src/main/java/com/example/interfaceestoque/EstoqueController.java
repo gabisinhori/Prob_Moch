@@ -10,6 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EstoqueController {
 
@@ -72,11 +73,13 @@ public class EstoqueController {
         });
 
         otimizarButton.setOnAction(e -> {
-            estoque.otimizarEstoque(new ArrayList<>(produtosData));
+            List<Produto> produtosSelecionados = AlgoritimoAEstrela.executar(new ArrayList<>(produtosData), estoque.getCapMax());
+            estoque.otimizarEstoque(produtosSelecionados);
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Otimização Completa");
+            alert.setTitle("Otimização com A* Completa");
             alert.setHeaderText(null);
-            alert.setContentText(estoque.toString());
+            alert.setContentText("Produtos otimizados:\n" + estoque.toString());
             alert.showAndWait();
         });
         attButton.setOnAction(e -> {
