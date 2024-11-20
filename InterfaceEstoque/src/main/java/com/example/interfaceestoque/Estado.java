@@ -42,4 +42,3 @@ public class Estado {
             return produtos.hashCode();
         }
     }
-}
